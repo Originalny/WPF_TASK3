@@ -1,0 +1,29 @@
+﻿<Window x:Class="WPF_TASK3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_TASK3" 
+        xmlns:vm="clr-namespace:WPF_TASK3.ViewModels"
+        mc:Ignorable="d"
+        Title="WPF Binding Demo" Height="225" Width="400">
+    <Window.DataContext>
+        <vm:PersonViewModel />
+    </Window.DataContext>
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="12"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="12"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Write a name:" FontWeight="SemiBold" />
+        <TextBox Grid.Row="2" Height="32" FontSize="16" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock Grid.Row="4" TextWrapping="Wrap" FontSize="16">
+            <Run Text="Hello, " />
+            <Run Text="{Binding Name}" />
+            <Run Text="!" />
+        </TextBlock>
+    </Grid>
+</Window>
